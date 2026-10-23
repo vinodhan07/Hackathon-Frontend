@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --font-syne: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-space: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-jakarta: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-syne: 'Syne', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --color-cyber-yellow: #FACC15;
-  --color-cyber-amber: #F59E0B;
-  --color-cyber-purple: #8B5CF6;
-  --color-cyber-violet: #7C3AED;
-  --color-void: #090514;
-  --color-surface: #130924;
-  --color-surface-elevated: #1E1238;
+  --color-yellow-main: #FACC15;
+  --color-yellow-bright: #FFE600;
+  --color-yellow-amber: #F59E0B;
+  --color-purple-subtle: #8B5CF6;
+  --color-purple-deep: #5B21B6;
+  --color-dark-bg: #0A0812;
+  --color-card-bg: #120F1D;
+  --color-card-elevated: #1A1629;
 }
 
 :root {
@@ -20,83 +21,124 @@
 }
 
 body {
-  font-family: var(--font-jakarta);
-  background-color: #090514;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #0A0812;
   color: #F8FAFC;
+  overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #090514;
-}
-::-webkit-scrollbar-thumb {
-  background: #25164A;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #8B5CF6;
-}
-
-/* Glassmorphism & Neon Glow Utilities */
-.glass-panel {
-  background: rgba(19, 9, 36, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.glass-panel-elevated {
-  background: rgba(30, 18, 56, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(139, 92, 246, 0.35);
-}
-
-.glow-yellow {
-  box-shadow: 0 0 35px -5px rgba(250, 204, 21, 0.35);
-}
-
-.glow-purple {
-  box-shadow: 0 0 45px -5px rgba(139, 92, 246, 0.3);
-}
-
-.glow-border-yellow {
-  border-color: rgba(250, 204, 21, 0.6);
-  box-shadow: 0 0 15px rgba(250, 204, 21, 0.25);
-}
-
-.font-display {
-  font-family: var(--font-syne);
+h1, h2, h3, .font-display {
+  font-family: 'Syne', sans-serif;
 }
 
 .font-tech {
-  font-family: var(--font-space);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .font-code {
-  font-family: var(--font-mono);
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Pulse animation for live beacons */
-@keyframes beacon-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 0.5;
-  }
+/* Custom Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0812;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A243D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FACC15;
 }
 
-.animate-beacon {
-  animation: beacon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+/* ============================================
+   YELLOW-DOMINANT CARD & GLASS UTILITIES
+   ============================================ */
+.card-clean {
+  background: #120F1D;
+  border: 1px solid rgba(250, 204, 21, 0.18);
+  border-radius: 1.25rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Infinite Marquee */
+.card-clean:hover {
+  border-color: rgba(250, 204, 21, 0.55);
+  box-shadow: 0 12px 36px -10px rgba(250, 204, 21, 0.2), 0 2px 12px -4px rgba(0,0,0,0.6);
+  transform: translateY(-3px);
+}
+
+.card-hero {
+  background: linear-gradient(180deg, #161226 0%, #100D1B 100%);
+  border: 1.5px solid rgba(250, 204, 21, 0.35);
+  box-shadow: 0 0 70px -15px rgba(250, 204, 21, 0.18), 0 0 0 1px rgba(250, 204, 21, 0.08);
+  border-radius: 1.5rem;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-yellow-primary {
+  background-color: #FACC15;
+  color: #0A0812;
+  font-weight: 800;
+  border-radius: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(250, 204, 21, 0.4);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-yellow-primary:hover {
+  background-color: #FFE600;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 35px -5px rgba(250, 204, 21, 0.5);
+}
+
+.btn-yellow-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-outline-clean {
+  background: transparent;
+  color: #F8FAFC;
+  border: 1.5px solid rgba(250, 204, 21, 0.35);
+  border-radius: 0.875rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-outline-clean:hover {
+  border-color: #FACC15;
+  color: #FACC15;
+  background: rgba(250, 204, 21, 0.07);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   GLOW UTILITIES
+   ============================================ */
+.glow-yellow-sm {
+  box-shadow: 0 0 24px rgba(250, 204, 21, 0.3);
+}
+
+.glow-yellow-lg {
+  box-shadow: 0 0 70px -10px rgba(250, 204, 21, 0.28);
+}
+
+/* ============================================
+   INFINITE MARQUEE ANIMATION
+   ============================================ */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -106,8 +148,101 @@ body {
   display: flex;
   width: 200%;
   animation: marquee 28s linear infinite;
+  will-change: transform;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* ============================================
+   GRADIENT TEXT UTILITY
+   ============================================ */
+.text-gradient-yellow {
+  background: linear-gradient(135deg, #FFE600 0%, #FACC15 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   YELLOW BORDER GRADIENT CARD
+   ============================================ */
+.card-border-glow {
+  position: relative;
+  border-radius: 1.25rem;
+  background: #120F1D;
+}
+
+.card-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(250,204,21,0.5), rgba(139,92,246,0.2), rgba(250,204,21,0.1));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-border-glow:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(250,204,21,0.3), transparent);
+}
+
+/* ============================================
+   ANIMATED TYPING CURSOR
+   ============================================ */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #FACC15;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* ============================================
+   PING PULSE ANIMATION (enhanced)
+   ============================================ */
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 0.8; }
+  75%, 100% { transform: scale(2.2); opacity: 0; }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ============================================
+   GLASS BLUR CARD
+   ============================================ */
+.glass-card {
+  background: rgba(18, 15, 29, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(250, 204, 21, 0.15);
+  border-radius: 1.25rem;
+}
+
+/* ============================================
+   FOCUS RING
+   ============================================ */
+:focus-visible {
+  outline: 2px solid #FACC15;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
