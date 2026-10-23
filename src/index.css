@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-syne: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-space: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-cyber-yellow: #FACC15;
+  --color-cyber-amber: #F59E0B;
+  --color-cyber-purple: #8B5CF6;
+  --color-cyber-violet: #7C3AED;
+  --color-void: #090514;
+  --color-surface: #130924;
+  --color-surface-elevated: #1E1238;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-jakarta);
+  background-color: #090514;
+  color: #F8FAFC;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090514;
+}
+::-webkit-scrollbar-thumb {
+  background: #25164A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
+
+/* Glassmorphism & Neon Glow Utilities */
+.glass-panel {
+  background: rgba(19, 9, 36, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.glass-panel-elevated {
+  background: rgba(30, 18, 56, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 35px -5px rgba(250, 204, 21, 0.35);
+}
+
+.glow-purple {
+  box-shadow: 0 0 45px -5px rgba(139, 92, 246, 0.3);
+}
+
+.glow-border-yellow {
+  border-color: rgba(250, 204, 21, 0.6);
+  box-shadow: 0 0 15px rgba(250, 204, 21, 0.25);
+}
+
+.font-display {
+  font-family: var(--font-syne);
+}
+
+.font-tech {
+  font-family: var(--font-space);
+}
+
+.font-code {
+  font-family: var(--font-mono);
+}
+
+/* Pulse animation for live beacons */
+@keyframes beacon-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.5;
+  }
+}
+
+.animate-beacon {
+  animation: beacon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
